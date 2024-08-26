@@ -12,7 +12,7 @@ using System.Text.Json.Nodes;
 
 namespace WebApplication2.Controllers
 {
-  
+
     public class AccountController : Controller
     {
         private static List<AccountModel> accountList = new List<AccountModel>();
@@ -59,42 +59,39 @@ namespace WebApplication2.Controllers
                     accountList.Add(account);
                 }
             }
-                return View(accountList);
+            accountList.ForEach(item => { Console.WriteLine(item.UserName); });
+            return View(accountList);
         }
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateAccount(AccountModel account) 
+        public IActionResult CreateAccount(AccountModel account)
         {
-            using(HttpClient client = new HttpClient()) 
+            using (HttpClient client = new HttpClient())
             {
                 var authString = Convert.ToBase64String(Encoding.UTF8.GetBytes("11191807:60-dayfreetrial"));
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authString);
                 string url = "http://strawberrydiaz-001-site1.ftempurl.com/api/Account/Create";
                 //string url = "https://localhost:7233/api/Account/Create";
                 string jsonContent = JsonConvert.SerializeObject(account);
-
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 var response = client.PostAsync(url, content).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    accountList.Add(account);
-                    return RedirectToAction("Index");
-                }
-                else 
+                if (!response.IsSuccessStatusCode)
                 {
                     return BadRequest();
                 }
+                accountList.Add(account);
+                return RedirectToAction("Index");
             }
         }
     }
 
     class ConvertData
     {
-        public static List<Dictionary<string,dynamic>> JsonToDictionary(JArray jsonArr) 
+        public static List<Dictionary<string, dynamic>> JsonToDictionary(JArray jsonArr)
         {
             List<Dictionary<string, dynamic>> accountList = new List<Dictionary<string, dynamic>>();
             for (int i = 0; i < jsonArr.Count; i++)

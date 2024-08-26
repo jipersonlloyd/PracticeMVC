@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pHYfhJcdLoAyvU66D1t3k0rBGrlL5DDqO4k8HdlL8Kcm+rj4LbUAW2Qr/eMYy4t3GGovicf6uh9klDDST0FlYg==",
+  "dgSpecHash": "CyR7e9OsM5KZMDojYVtTYT7QPcaXUgB0REA5FpY7/aTORXoR85zZKkjPo3jYdxAOEx23nHKxyoTH6XgDikI0ww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lloyd Jiperson Diaz\\Desktop\\FrontEnd\\HTMLCSS5\\WebApplication2\\WebApplication2.csproj",
+  "projectFilePath": "c:\\Users\\Lloyd Jiperson Diaz\\Desktop\\FrontEnd\\HTMLCSS5\\WebApplication2\\WebApplication2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lloyd Jiperson Diaz\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Lloyd Jiperson Diaz\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
